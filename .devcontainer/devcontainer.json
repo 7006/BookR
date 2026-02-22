@@ -1,0 +1,24 @@
+{
+    "name": "R",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "mounts": [
+        "source=devcontainer-renv-cache,target=/renv/cache,type=volume"
+    ],
+    "postCreateCommand": "Rscript -e 'renv::restore(prompt = FALSE)'",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "REditorSupport.r",
+                "RDebugger.r-debugger"
+            ],
+            "settings": {
+                "r.rterm.linux": "/usr/local/bin/radian",
+                "r.bracketedPaste": true,
+                "r.formatting.provider": "styler",
+                "editor.formatOnSave": true
+            }
+        }
+    }
+}
